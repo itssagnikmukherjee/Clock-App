@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4ceabe38a1.js" crossorigin="anonymous"></script>
+</head>
+<body onload="currentTime();">
+
+  <div class="tabs">
+    <div class="tab-header">
+      <div class="active tab-item">
+        <i class="fa-solid fa-clock"></i> Clock
+      </div>
+      <div class="tab-item">
+        <i class="fa-solid fa-bell"></i> Alarm
+      </div>
+      <div class="tab-item">
+        <i class="fa-solid fa-stopwatch"></i> StopWatch
+      </div>
+      <div class="tab-item">
+        <i class="fa-solid fa-hourglass-half"></i> Timer
+      </div>
+    </div>
+    <div class="tab-indicator"></div>
+    <div class="tab-body">
+      <div class="active tab-item main-content">
+      <section class="analog_clock">
+        <section class="mid_point"></section>
+        <img id="clockBackground" src="clock.png" alt="">
+        <section id="hour_hand">
+        </section>
+        <section id="minute_hand">
+        </section>
+        <section id="second_hand">
+        </section>
+      </section>
+      <section class="digital_clock">
+      </section>
+      </div>
+      <div class="tab-item main-content">
+        <section class="alarm_content">
+
+        </section>
+      </div>
+      <div class="tab-item main-content">
+        <section class="stopwatch_content">
+          
+          <section id="stopwatch_main">
+            <span class="sw_hr">00</span>&nbsp;
+            <span class="sw_min">00</span>&nbsp;
+            <span class="sw_sec">00</span>&nbsp;
+            <span class="sw_ms">00</span>
+          </section>
+
+          <section id = "swLables">
+            <span class="sw_label">Hr</span>
+            <span class="sw_label">Min</span>
+            <span class="sw_label">Sec</span>
+            <span class="sw_label">Ms</span>
+          </section>
+         
+
+          <section class="stopwatchBtns">
+            <button class="StopWatchBtn startStopWatch" onclick="startStopWatch();"><i class="fa-solid fa-play"></i> Start</button>
+            <button class="StopWatchBtn stopStopWatch" onclick="stopStopWatch();"><i class="fa-solid fa-stop"></i> Stop</button>
+            <button class="StopWatchBtn resetStopWatch" onclick="resetStopWatch();"><i class="fa-solid fa-reply"></i> Reset</button>
+          </section>
+        </section>
+      </div>
+      <div class="tab-item main-content">
+        this is timer
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

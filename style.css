@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&family=Outfit:wght@600&family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url("https://i.stack.imgur.com/xJRXv.png");
+}
+
+/* ============= TABS ================ */
+
+.tabs{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35vw;
+    height: 80vh;
+    padding: 2vw;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #1e272e;
+}
+
+.tab-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+}
+
+.tabs .tab-header > div{
+width: calc(100% / 4);
+text-align: center;
+color: white;
+font-family: 'Poppins', sans-serif;
+cursor: pointer;
+font-size: 1.2vw;
+outline: none;
+}
+
+.tabs .tab-header > div > i{
+    margin: 5px;
+}
+
+.tabs .tab-header > div.active{
+    color:#e74c3c;
+}
+.tabs .tab-indicator{
+    position: relative;
+    width: calc(100% / 4);
+    height: 4px;
+    background-color:#e74c3c;
+    left: 0px;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+    margin-top: 0.8vw;
+}
+
+.tab-body{
+    position: relative;
+    height: calc(100% - 7vh);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.tab-body > div{
+    position: absolute;
+    top: -200%;
+    opacity: 0;
+    transform: scale(0.99);
+    transition: opacity 500ms ease-in-out 0ms, transform 100ms ease-in-out 0ms;
+}
+
+.tab-body > div.active{
+    top: 0px;
+    opacity: 1;
+    transform: scale(1);
+    margin-top: 0px;
+}
+
+.clock-content{
+    margin-top: 2vw;
+    height: 32vw;
+    width: 35vw;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.032);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.main-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.028);
+    border-radius: 0px 0px 10px 10px;
+    margin-top: 50px;
+}
+
+/* ============= DIGITAL CLOCK ================ */
+
+.digital_clock {
+    font-family: 'Outfit', sans-serif;
+    font-size: 4vw;
+    color: #ecf0f1;
+}
+#clockBackground{
+    height: 20vw;
+    width: 20vw;
+    margin: 30px;
+    background-color: white;
+    border-radius: 50%; 
+}
+#hour_hand{
+    left: calc(50% - 2.5px);
+    top:25%;
+    position: absolute;
+    height: 78px;
+    width: 5px;
+    background-color: red;
+    border-radius: 10px;
+    transition: 0.05s;
+    transform-origin: bottom;
+
+}
+#minute_hand{
+    left: calc(50% - 2px);
+    top:20%;
+    position: absolute;
+    height: 100px;
+    width: 4px;
+    background-color: rgb(42, 42, 42);
+    border-radius: 10px;
+    transition: 0.05s;
+    transform-origin: bottom;
+}
+#second_hand{
+    left: calc(50% - 1px);
+    top:22.5%;
+    position: absolute;
+    height: 90px;
+    width: 2px;
+    background-color: rgb(35, 235, 75);
+    border-radius: 10px;
+    transform-origin: bottom;
+    transition: 0.05s;
+
+}
+.mid_point{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #1e272e;
+    border-radius: 50%;
+    left: 49%;
+    top: 41%;
+    z-index: 999;
+}
+
+/* StopWatch */
+
+#stopwatch_main{
+    font-size: 3.5vw;
+    font-family: 'Outfit', sans-serif;
+    color: #ecf0f1;
+    background-color: #ed6859;
+    width: 25vw;
+    height: 9vw;
+    margin: auto;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stopwatchBtns{
+    width: 82%;
+    padding: 20px 0px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.StopWatchBtn{
+    height: 4vw;
+    width: 9vw;
+    margin: 0.6vw;
+    border: 0px;
+    border-radius: 20px;
+    font-size: 20px;
+    font-family: 'Outfit', sans-serif;
+    background-color: #6c5ce7;
+    color: white;
+    cursor: pointer;
+
+}
+.sw_hr,.sw_min,.sw_sec,.sw_ms{
+width: 6vw;
+}
+#swLables{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    top:47%;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+}
+.sw_label{
+    color: white;
+}
+.StopWatchBtn > i{
+    margin: 5px;
+}
+.startStopWatch:hover{
+background-color: #6c5ce7c2;
+transition: 0.3s;
+}
+.stopStopWatch:hover{
+    background-color: #0984e3c2;
+    transition: 0.3s;
+}
+ .resetStopWatch:hover{
+    background-color: #00cec9c2;
+     transition: 0.3s;
+ }
+.stopStopWatch{
+    background-color: #0984e3;
+}
+.resetStopWatch{
+    background-color: #00cec9;
+}
+.sw_label{
+    font-size: 1.2vw;
+    display: block;
+    font-family: 'Poppins' , sans-serif;
+}
