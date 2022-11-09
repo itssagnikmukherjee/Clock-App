@@ -1,82 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clock</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/4ceabe38a1.js" crossorigin="anonymous"></script>
-</head>
-<body onload="currentTime();">
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/4ceabe38a1.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body onload="currentTime(); initClock();">
+    <div class="tabs">
+      <div class="tab-header">
+        <div class="active tab-item">
+          <i class="fa-solid fa-clock"></i> Clock
+        </div>
+        <div class="tab-item"><i class="fa-solid fa-bell"></i> Alarm</div>
+        <div class="tab-item">
+          <i class="fa-solid fa-stopwatch"></i> StopWatch
+        </div>
+        <div class="tab-item">
+          <i class="fa-solid fa-hourglass-half"></i> Timer
+        </div>
+      </div>
+      <div class="tab-indicator"></div>
+      <div class="tab-body">
+        <!-- ? CLOCK SECTION -->
 
-  <div class="tabs">
-    <div class="tab-header">
-      <div class="active tab-item">
-        <i class="fa-solid fa-clock"></i> Clock
-      </div>
-      <div class="tab-item">
-        <i class="fa-solid fa-bell"></i> Alarm
-      </div>
-      <div class="tab-item">
-        <i class="fa-solid fa-stopwatch"></i> StopWatch
-      </div>
-      <div class="tab-item">
-        <i class="fa-solid fa-hourglass-half"></i> Timer
+        <div class="active tab-item main-content">
+          <!-- ANALOG CLOCK -->
+
+          <section class="analog_clock">
+            <section class="mid_point"></section>
+
+            <img src="@.png" id="imageBackground" alt="" />
+
+            <section id="hour_hand"></section>
+            <section id="minute_hand"></section>
+            <section id="second_hand"></section>
+          </section>
+
+          <!-- DIGITAL CLOCK -->
+          <section class="digital_clock"></section>
+        </div>
+
+        <!-- ? ALARM SECTION -->
+
+        <div class="tab-item main-content">
+          <section class="alarm_content">
+            <!-- ALARM DISPLAY -->
+            <section class="date_time">
+              <section class="date">
+                <span id="dayName">Day</span>
+                <span id="month">Month</span>
+                <span id="dayNum">00</span>
+                <span id="year">Year</span>
+              </section>
+              <section class="time">
+                <span id="hour">00</span>
+                <span id="minutes">00</span>
+                <span id="seconds">00</span>
+                <span id="period">AM</span>
+              </section>
+              <button id="stopAlarmBtn" onclick="stopAlarm();">Stop Alarm !</button>
+            </section>
+            <!-- ALARM SET SECTION -->
+            
+            <section class="setAlarm">
+              
+              <section class="column">
+                <select id="alarm_select">
+                  <option value="setHour" selected hidden>Hour</option>
+                </select>
+              </section>
+
+              <section class="column">
+                <select id="alarm_select">
+                  <option value="setMinute" selected hidden>Minute</option>
+                </select>
+              </section>
+
+              <section class="column">
+                <select id="alarm_select">
+                  <option value="AM/PM" selected hidden>AM/PM</option>
+                </select>
+              </section>
+
+              
+            </section>
+            <button class="setAlarmBtn" type="submit" onclick="setAlarm()">Set Alarm</button>
+            <h1 class="upcoming_alarms"></h1>
+            <section class="alarmList">
+
+            </section>
+          </section>
+        </div>
+
+        <!-- ? STOPWATCH SECTION -->
+
+        <div class="tab-item main-content">
+          <section class="stopwatch_content">
+            <section id="stopwatch_main">
+              <span class="sw_hr">00</span>&nbsp;
+              <span class="sw_min">00</span>&nbsp;
+              <span class="sw_sec">00</span>&nbsp;
+              <span class="sw_ms">00</span>
+            </section>
+
+            <section id="swLables">
+              <span class="sw_label">Hr</span>
+              <span class="sw_label">Min</span>
+              <span class="sw_label">Sec</span>
+              <span class="sw_label">Ms</span>
+            </section>
+
+            <section class="stopwatchBtns">
+              <button
+                class="StopWatchBtn startStopWatch"
+                onclick="startStopWatch();"
+              >
+                <i class="fa-solid fa-play"></i> Start
+              </button>
+              <button
+                class="StopWatchBtn stopStopWatch"
+                onclick="stopStopWatch();"
+              >
+                <i class="fa-solid fa-stop"></i> Stop
+              </button>
+              <button
+                class="StopWatchBtn resetStopWatch"
+                onclick="resetStopWatch();"
+              >
+                <i class="fa-solid fa-reply"></i> Reset
+              </button>
+            </section>
+          </section>
+        </div>
+
+        <!-- ? TIMER SECTION -->
+
+        <div class="tab-item main-content">
+          <section class="timer">
+            <section class="timer_inputs">
+              <input
+                id="timer_hr"
+                type="number"
+                min="0"
+                max="24"
+                placeholder="0"
+              />
+              <input
+                id="timer_min"
+                type="number"
+                min="0"
+                max="60"
+                placeholder="0"
+              />
+              <input
+                id="timer_sec"
+                type="number"
+                min="0"
+                max="60"
+                placeholder="0"
+              />
+            </section>
+            <section class="timer_input_labels">
+              <section class="timer_input_label">Hour</section>
+              <section class="timer_input_label">Minute</section>
+              <section class="timer_input_label">Second</section>
+            </section>
+            <audio id="timer_audio">
+              <source src="Timer Audio.mp3" type="audio/mp3" />
+            </audio>
+            <section class="timer_btns">
+              <span class="start_timer timer_btn" onclick="start_Timer_Clock();"
+                ><i class="fa-solid fa-play"></i>Start</span
+              >
+              <span class="reset_timer timer_btn" onclick="reset_Timer_Clock();"
+                ><i class="fa-solid fa-reply"></i>Reset</span
+              >
+            </section>
+          </section>
+        </div>
       </div>
     </div>
-    <div class="tab-indicator"></div>
-    <div class="tab-body">
-      <div class="active tab-item main-content">
-      <section class="analog_clock">
-        <section class="mid_point"></section>
-        <img id="clockBackground" src="clock.png" alt="">
-        <section id="hour_hand">
-        </section>
-        <section id="minute_hand">
-        </section>
-        <section id="second_hand">
-        </section>
-      </section>
-      <section class="digital_clock">
-      </section>
-      </div>
-      <div class="tab-item main-content">
-        <section class="alarm_content">
-
-        </section>
-      </div>
-      <div class="tab-item main-content">
-        <section class="stopwatch_content">
-          
-          <section id="stopwatch_main">
-            <span class="sw_hr">00</span>&nbsp;
-            <span class="sw_min">00</span>&nbsp;
-            <span class="sw_sec">00</span>&nbsp;
-            <span class="sw_ms">00</span>
-          </section>
-
-          <section id = "swLables">
-            <span class="sw_label">Hr</span>
-            <span class="sw_label">Min</span>
-            <span class="sw_label">Sec</span>
-            <span class="sw_label">Ms</span>
-          </section>
-         
-
-          <section class="stopwatchBtns">
-            <button class="StopWatchBtn startStopWatch" onclick="startStopWatch();"><i class="fa-solid fa-play"></i> Start</button>
-            <button class="StopWatchBtn stopStopWatch" onclick="stopStopWatch();"><i class="fa-solid fa-stop"></i> Stop</button>
-            <button class="StopWatchBtn resetStopWatch" onclick="resetStopWatch();"><i class="fa-solid fa-reply"></i> Reset</button>
-          </section>
-        </section>
-      </div>
-      <div class="tab-item main-content">
-        this is timer
-      </div>
-    </div>
-  </div>
-
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

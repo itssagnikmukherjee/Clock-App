@@ -103,6 +103,7 @@ outline: none;
     margin-top: 50px;
 }
 
+
 /* ============= DIGITAL CLOCK ================ */
 
 .digital_clock {
@@ -123,7 +124,7 @@ outline: none;
     position: absolute;
     height: 78px;
     width: 5px;
-    background-color: red;
+    background-color: #e74c3c;
     border-radius: 10px;
     transition: 0.05s;
     transform-origin: bottom;
@@ -135,7 +136,7 @@ outline: none;
     position: absolute;
     height: 100px;
     width: 4px;
-    background-color: rgb(42, 42, 42);
+    background-color: #fff;
     border-radius: 10px;
     transition: 0.05s;
     transform-origin: bottom;
@@ -146,8 +147,8 @@ outline: none;
     position: absolute;
     height: 90px;
     width: 2px;
-    background-color: rgb(35, 235, 75);
-    border-radius: 10px;
+    background-color: rgba(35, 235, 75, 0.698);
+    border-radius: 10%;
     transform-origin: bottom;
     transition: 0.05s;
 
@@ -186,7 +187,6 @@ outline: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 .StopWatchBtn{
     height: 4vw;
@@ -221,6 +221,9 @@ width: 6vw;
 .StopWatchBtn > i{
     margin: 5px;
 }
+.startStopWatch{
+    width: 13vw;
+}
 .startStopWatch:hover{
 background-color: #6c5ce7c2;
 transition: 0.3s;
@@ -235,12 +238,170 @@ transition: 0.3s;
  }
 .stopStopWatch{
     background-color: #0984e3;
+    display: none;
+    width: 13vw;
 }
 .resetStopWatch{
     background-color: #00cec9;
+    position: absolute;
+    left: 50%;
+    width: 13vw;
 }
 .sw_label{
     font-size: 1.2vw;
     display: block;
     font-family: 'Poppins' , sans-serif;
+}
+
+/* Timer */
+
+.timer_inputs > input{
+    background-color: rgb(91, 177, 220);
+    border: none;
+    padding: 5px;
+    width: 23%;
+    margin: 0.5vw;
+    height: 4vw;
+    border-radius: 20px;
+    color: white;
+    align-items: center;
+    text-align: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 3vw;
+}
+.timer_input_labels{
+    display: flex;
+    font-size: 1vw;
+    font-family: Poppins;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    gap: 5vw;
+}
+
+.timer_input_label{
+margin-top: .1vw;
+width: 5vw;
+}
+.timer_btns{
+    margin-top: 1vw;
+}
+.timer_btn{
+    cursor: pointer;
+    background-color: rgb(222, 98, 172);
+    border-radius: 20px;
+    border: none;
+    padding: 1vw 2vw;
+    font-family: Outfit;
+    font-size: 1.5vw;
+    margin: 0.2vw;
+    display: inline-block;
+    width: 10vw;
+    color: white;
+    transition: 0.3s;
+
+}
+
+.timer_btn:hover{
+background-color: rgba(222, 98, 172, 0.749);
+transition: 0.3s;
+}
+.reset_timer{
+    background-color: #5bd26d;
+}
+.reset_timer:hover{
+    background-color: #5bd26dc6;
+
+}
+.timer_btn > i{
+margin-right: .6vw;
+}
+
+/* ALARM */
+
+.date_time{
+    font-size: 2.1vw;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.052);
+    width: 75%;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 1vw;
+}
+.date{
+    margin: auto;
+    color: #ffffff44;
+    margin-top: 25px;
+}
+#hour{
+    font-size: 3vw;
+    color: white;
+}
+#stopAlarmBtn{
+    visibility: hidden;
+}
+.setAlarm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.column{
+margin: 5px;
+}
+#alarm_select{
+    font-size: 1.5vw;
+    padding: 10px;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    width: 8vw;
+    border-radius: 1vw;
+    border: 0px;
+    color: white;
+    background-color: #6c5ce7;
+}
+#alarm_select > option > value{
+    font-size: 1vw;
+    text-align: center;
+}
+
+.setAlarmBtn{
+    padding: 10px 20px;
+    border-radius: 10vw;
+    border: 0px;
+    margin: 10px;
+    text-transform: uppercase;
+    font-family: 'Outfit', sans-serif;
+    background-color: #e74c3c;
+    color: white;
+    width: 70%;
+    cursor: pointer;
+}
+.upcoming_alarms{
+text-transform: uppercase;
+font-family: 'Poppins', sans-serif;
+font-size: 1vw;
+font-weight: 100;
+color: #ffffff44;
+margin: 15px;
+}
+.alarmLog{
+    font-size: 1.5vw;
+font-family: 'Poppins', sans-serif;
+letter-spacing: 2px;
+color: white;
+margin: 10px;
+}
+.btn-delete{
+    padding:5px;
+    margin-left: 20px;
+    border: 0px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
 }
